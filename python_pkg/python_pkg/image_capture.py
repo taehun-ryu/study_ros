@@ -28,7 +28,7 @@ class ImageSubscriber(Node):
         self.subscription = self.create_subscription(
             Image,
             ROBOT_MODEL+"/camera_sensor/image_raw",
-            self.listener_callback,
+            self.subscribeCallBack,
             10,
         )
         self.subscription
@@ -45,17 +45,17 @@ class ImageSubscriber(Node):
             self.get_logger().info('A image is saved naming image.jpg using Canny Edge Detection')
             gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
             canny = cv2.Canny(gray,50,200)
-            cv2.imwrite("/home/ryu/study_ws/src/py_pkg/image.jpg",canny)
+            cv2.imwrite("image.jpg",canny)
             response.success = True
         else:
             self.get_logger().info('A image is saved naming image.jpg using Original Image')
-            cv2.imwrite("/home/ryu/study_ws/src/py_pkg/image.jpg",src)
+            cv2.imwrite("image.jpg",src)
             response.success = True
         self.get_logger().info('Servie Process Done...')
 
         return response
 
-    def listener_callback(self, data):
+    def subscribeCallBack(self, data):
         try:
             current_frame = self.cv_bridge.imgmsg_to_cv2(data, "bgr8")
             ImageSubscriber.image_ = current_frame
