@@ -1,0 +1,5 @@
+# Request
+string shape
+---
+# Response
+bool success

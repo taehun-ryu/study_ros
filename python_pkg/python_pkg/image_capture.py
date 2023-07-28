@@ -13,7 +13,7 @@ from cv_bridge import (
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
-from robot_msgs.srv import SrvExample
+from study_msgs.srv import ImageCapture
 
 # bool button_press
 # ---
@@ -33,22 +33,24 @@ class ImageSubscriber(Node):
         )
         self.subscription
         self.srv = self.create_service(
-            SrvExample, 'capture_image', self.captureImageCallBack
+            ImageCapture, 'capture_image', self.captureImageCallBack
         )
         # ROS2 <=> OpenCV를 해주는 cv_bridge
         self.cv_bridge = CvBridge()
         self.get_logger().info('==== Image Capture Server Started, Waiting for Request ====')
 
     def captureImageCallBack(self, request, response):
-        if request.button_press:
-            self.get_logger().info('A image is saved naming image.jpg')
-            src= ImageSubscriber.image_
+        src= ImageSubscriber.image_
+        if request.edge:
+            self.get_logger().info('A image is saved naming image.jpg using Canny Edge Detection')
             gray = cv2.cvtColor(src, cv2.COLOR_BGR2GRAY)
             canny = cv2.Canny(gray,50,200)
             cv2.imwrite("/home/ryu/study_ws/src/py_pkg/image.jpg",canny)
             response.success = True
         else:
-            self.get_logger().info('If you want capture, send True message.')
+            self.get_logger().info('A image is saved naming image.jpg using Original Image')
+            cv2.imwrite("/home/ryu/study_ws/src/py_pkg/image.jpg",src)
+            response.success = True
         self.get_logger().info('Servie Process Done...')
 
         return response

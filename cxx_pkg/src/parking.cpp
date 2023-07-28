@@ -3,7 +3,6 @@
 #include "rclcpp/rclcpp.hpp"
 #include "geometry_msgs/msg/twist.hpp"
 #include "sensor_msgs/msg/laser_scan.hpp"
-#include "sensor_msgs/msg/image.hpp"
 
 using Twist = geometry_msgs::msg::Twist;
 using LaserScan = sensor_msgs::msg::LaserScan;

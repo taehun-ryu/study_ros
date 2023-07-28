@@ -1,6 +1,6 @@
 from setuptools import setup
 
-package_name = 'py_pkg'
+package_name = 'python_pkg'
 
 setup(
     name=package_name,
@@ -20,9 +20,9 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'image_capture_node = py_pkg.image_capture:main',
-            'cmd_vel_pub_node = py_pkg.cmd_vel_pub:main',
-            'laser_sub_node = py_pkg.laser_sub:main'
+            'image_capture_node = python_pkg.image_capture:main',
+            'cmd_vel_pub_node = python_pkg.cmd_vel_pub:main',
+            'laser_sub_node = python_pkg.laser_sub:main'
         ],
     },
 )
