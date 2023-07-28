@@ -1,0 +1,9 @@
+# goal define
+nav_msgs/Path path
+---
+# result define
+nav_msgs/Path path
+bool was_completed
+---
+# feedback define
+float64 remaining
