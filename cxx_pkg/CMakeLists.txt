@@ -2,7 +2,7 @@
 # Set minimum required version of cmake, project name and compile options
 ################################################################################
 cmake_minimum_required(VERSION 3.8)
-project(cpp_pkg)
+project(cxx_pkg)
 
 
 
@@ -22,6 +22,7 @@ find_package(ament_cmake REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(sensor_msgs REQUIRED)
+find_package(study_msgs REQUIRED)
 
 
 ################################################################################
@@ -59,6 +60,9 @@ ament_target_dependencies(cmd_vel_pub_node rclcpp geometry_msgs)
 add_executable(laser_sub_node src/laser_sub.cpp)
 ament_target_dependencies(laser_sub_node rclcpp sensor_msgs)
 
+add_executable(move_shape_node src/move_shape.cpp)
+ament_target_dependencies(move_shape_node rclcpp study_msgs geometry_msgs)
+
 ################################################################################
 # Install
 ################################################################################
@@ -69,7 +73,7 @@ ament_target_dependencies(laser_sub_node rclcpp sensor_msgs)
 # )
 
 # node
-install(TARGETS parking_node cmd_vel_pub_node laser_sub_node
+install(TARGETS parking_node cmd_vel_pub_node laser_sub_node move_shape_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
