@@ -11,11 +11,11 @@ class LaserSubscriber(Node):
         ROBOT_MODEL = os.environ['ROBOT_MODEL']
         queue_size = 10
         self.subscriber = self.create_subscription(
-            LaserScan, ROBOT_MODEL+'/scan', self.sub_callback, queue_size
+            LaserScan, ROBOT_MODEL+'/scan', self.subscribeCallBack, queue_size
         )
         self.subscriber  # prevent unused variable warning
 
-    def sub_callback(self, msg):
+    def subscribeCallBack(self, msg):
         self.get_logger().info(f'Raw Laser Data : {msg.ranges}')
 
 def main(args=None):

@@ -1,5 +1,5 @@
 # Request
-string shape
+std_msgs/String shape
 ---
 # Response
 bool success
