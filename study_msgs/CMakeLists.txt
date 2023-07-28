@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.8)
-project(robot_msgs)
+project(study_msgs)
 
 if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
@@ -18,7 +18,8 @@ find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
  "msg/MsgExample.msg"
- "srv/SrvExample.srv"
+ "srv/ImageCapture.srv"
+ "srv/MoveShapes.srv"
  "action/ActionExample.action"
  DEPENDENCIES builtin_interfaces geometry_msgs nav_msgs std_msgs
 )

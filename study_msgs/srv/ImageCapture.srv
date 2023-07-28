@@ -1,5 +1,5 @@
 # Request
-bool button_press
+bool edge
 ---
 # Response
 bool success
