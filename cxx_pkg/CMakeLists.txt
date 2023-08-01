@@ -52,7 +52,7 @@ find_package(study_msgs REQUIRED)
 # ament_target_dependencies(${PROJECT_NAME}_lib ${DEPENDENCIES})
 
 add_executable(parking_node src/parking.cpp)
-ament_target_dependencies(parking_node rclcpp sensor_msgs geometry_msgs)
+ament_target_dependencies(parking_node rclcpp sensor_msgs geometry_msgs study_msgs)
 
 add_executable(cmd_vel_pub_node src/cmd_vel_pub.cpp)
 ament_target_dependencies(cmd_vel_pub_node rclcpp geometry_msgs)
@@ -62,6 +62,9 @@ ament_target_dependencies(laser_sub_node rclcpp sensor_msgs)
 
 add_executable(move_shape_node src/move_shape.cpp)
 ament_target_dependencies(move_shape_node rclcpp study_msgs geometry_msgs)
+
+add_executable(ms_client_node src/ms_client.cpp)
+ament_target_dependencies(ms_client_node rclcpp study_msgs)
 
 ################################################################################
 # Install
@@ -73,7 +76,7 @@ ament_target_dependencies(move_shape_node rclcpp study_msgs geometry_msgs)
 # )
 
 # node
-install(TARGETS parking_node cmd_vel_pub_node laser_sub_node move_shape_node
+install(TARGETS parking_node cmd_vel_pub_node laser_sub_node move_shape_node ms_client_node
   DESTINATION lib/${PROJECT_NAME}
 )
 

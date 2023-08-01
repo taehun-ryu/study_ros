@@ -22,7 +22,8 @@ setup(
         'console_scripts': [
             'image_capture_node = python_pkg.image_capture:main',
             'cmd_vel_pub_node = python_pkg.cmd_vel_pub:main',
-            'laser_sub_node = python_pkg.laser_sub:main'
+            'laser_sub_node = python_pkg.laser_sub:main',
+            'ms_client_node= python_pkg.ms_client:main'
         ],
     },
 )
