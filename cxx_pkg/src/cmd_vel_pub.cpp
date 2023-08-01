@@ -10,6 +10,7 @@ class TwistPub : public rclcpp::Node
   {
     m_twist_msg.linear.x = 0.5;
     m_twist_msg.angular.z = 1.0;
+    // RCLCPP_INFO(get_logger(), "==== Move Robot ====");
     m_pub->publish(m_twist_msg);
   }
   void stop_robot()
@@ -27,6 +28,7 @@ class TwistPub : public rclcpp::Node
   void timer_callback()
   {
     move_robot();
+    // RCLCPP_INFO(get_logger(), "timer_callback is called");
   }
 };
 
@@ -34,7 +36,7 @@ TwistPub::TwistPub(const std::string& model): Node("cmd_vel_pub_node")
 {
   RCLCPP_INFO(get_logger(), "Cmd_vel Pub Node Created");
   m_pub = create_publisher<geometry_msgs::msg::Twist>(model + "/cmd_vel", 10);
-  m_timer = create_wall_timer(std::chrono::milliseconds(100),
+  m_timer = create_wall_timer(std::chrono::milliseconds(1000),
                               std::bind(&TwistPub::timer_callback, this));
 }
 
@@ -48,7 +50,8 @@ int main(int argc, char **argv)
   auto stop_time = 5.0;
   while ((t_now - t_start).seconds() < stop_time) {
     t_now = twist_pub->now();
-    twist_pub->move_robot();
+    twist_pub->move_robot();        // timer_callback is not called
+    //rclcpp::spin_some(twist_pub); // timer_callback is called
     RCLCPP_INFO(twist_pub->get_logger(), "%f Seconds Passed", (t_now - t_start).seconds());
   }
   twist_pub->stop_robot();
