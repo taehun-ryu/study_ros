@@ -1,6 +1,3 @@
-#define _USE_MATH_DEFINES
-
-#include <math.h>
 #include <memory>
 
 #include "rclcpp/rclcpp.hpp"
@@ -18,7 +15,7 @@ class MoveRobot : public rclcpp::Node
   ~MoveRobot();
   void responseCallBack(std::shared_ptr<MoveShapes::Request> request, std::shared_ptr<MoveShapes::Response> response)
   {
-    rclcpp::Rate rate(0.4);
+    rclcpp::WallRate rate(0.4);
     if (request->shape.data == "go") // shape는 std_msgs/String 형태로 정의되어 있음 -> data 를 사용해야 함
     {
       moveRobot(0.5, 0.0);
@@ -75,12 +72,18 @@ class MoveRobot : public rclcpp::Node
   rclcpp::Service<MoveShapes>::SharedPtr move_shapes_service;
 };
 
-MoveRobot::MoveRobot(const std::string& model) : Node("move_shapes_node")
+// # Request
+// std_msgs/String shape
+// ---
+// # Response
+// bool success
+
+MoveRobot::MoveRobot(const std::string& model) : Node("move_shapes_server")
 {
-  RCLCPP_INFO(get_logger(), "Move Shapes Node Start!");
+  RCLCPP_INFO(get_logger(), "Move Shapes Server Node Start!");
   cmd_pub = create_publisher<Twist>(model + "/cmd_vel",10);
   move_shapes_service = create_service<MoveShapes>(
-        "turn_robot", std::bind(&MoveRobot::responseCallBack, this,
+        "move_robot", std::bind(&MoveRobot::responseCallBack, this,
                                 std::placeholders::_1, std::placeholders::_2));
 }
 
