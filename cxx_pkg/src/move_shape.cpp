@@ -15,7 +15,7 @@ class MoveRobot : public rclcpp::Node
   ~MoveRobot();
   void responseCallBack(std::shared_ptr<MoveShapes::Request> request, std::shared_ptr<MoveShapes::Response> response)
   {
-    rclcpp::WallRate rate(0.4);
+    rclcpp::WallRate rate(0.4);  // 0.4Hz
     if (request->shape.data == "go") // shape는 std_msgs/String 형태로 정의되어 있음 -> data 를 사용해야 함
     {
       moveRobot(0.5, 0.0);
