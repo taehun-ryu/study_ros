@@ -28,6 +28,8 @@ setup(
             'fibonacci_action_server_cancel_node= python_pkg.fibonacci_action_server_cancel:main',
             'fibonacci_action_client_node= python_pkg.fibonacci_action_client:main',
             'fibonacci_action_client_cancel_node= python_pkg.fibonacci_action_client_cancel:main',
+            'robot_turn_action_server_node= python_pkg.robot_turn_action_server:main',
+            'robot_turn_action_client_node= python_pkg.robot_turn_action_client:main',
         ],
     },
 )

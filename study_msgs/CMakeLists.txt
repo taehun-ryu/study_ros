@@ -22,6 +22,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
  "srv/MoveShapes.srv"
  "action/ActionExample.action"
  "action/Fibonacci.action"
+ "action/RobotTurn.action"
+
  DEPENDENCIES builtin_interfaces geometry_msgs nav_msgs std_msgs
 )
 

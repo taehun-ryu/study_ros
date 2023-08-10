@@ -9,6 +9,7 @@
 
   <depend>rclpy</depend>
   <depend>geometry_msgs</depend>
+  <depend>nav_msgs</depend>
   <depend>study_msgs</depend>
   <depend>cv_bridge</depend>
   <depend>sensor_msgs</depend>
