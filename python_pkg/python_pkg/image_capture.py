@@ -61,8 +61,11 @@ class ImageSubscriber(Node):
             ImageSubscriber.image_ = current_frame
         except CvBridgeError as e:
             self.get_logger().info(e)
-        cv2.imshow("camera", current_frame)
-        cv2.waitKey(1)
+
+        # cv2.imshow("camera", current_frame)
+        # cv2.waitKey(1)
+
+        self.center_pixel = current_frame[400, 400]
 
 def main(args=None):
     rclpy.init(args=args)
