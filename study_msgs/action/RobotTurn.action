@@ -1,0 +1,8 @@
+# Goal
+int32[] turning_sequence
+---
+# Result
+bool success
+---
+# Feedback
+string feedback_msg
