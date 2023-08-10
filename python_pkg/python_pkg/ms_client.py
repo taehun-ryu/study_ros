@@ -35,7 +35,7 @@ class RobotTurnClient(Node):
         # 사용자로부터 input을 받는 로직의 구현입니다.
         while True:
             try:
-                td = input('> Type turning time duration: ')
+                td = input('> Type shape: ')
 
                 self.req.shape.data = td
                 break

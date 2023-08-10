@@ -23,7 +23,11 @@ setup(
             'image_capture_node = python_pkg.image_capture:main',
             'cmd_vel_pub_node = python_pkg.cmd_vel_pub:main',
             'laser_sub_node = python_pkg.laser_sub:main',
-            'ms_client_node= python_pkg.ms_client:main'
+            'ms_client_node= python_pkg.ms_client:main',
+            'fibonacci_action_server_node= python_pkg.fibonacci_action_server:main',
+            'fibonacci_action_server_cancel_node= python_pkg.fibonacci_action_server_cancel:main',
+            'fibonacci_action_client_node= python_pkg.fibonacci_action_client:main',
+            'fibonacci_action_client_cancel_node= python_pkg.fibonacci_action_client_cancel:main',
         ],
     },
 )
