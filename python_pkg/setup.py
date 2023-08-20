@@ -30,6 +30,7 @@ setup(
             'fibonacci_action_client_cancel_node= python_pkg.fibonacci_action_client_cancel:main',
             'robot_turn_action_server_node= python_pkg.robot_turn_action_server:main',
             'robot_turn_action_client_node= python_pkg.robot_turn_action_client:main',
+            'miro_node= python_pkg.miro_node:main',
         ],
     },
 )
