@@ -10,7 +10,6 @@
   <depend>rclpy</depend>
   <depend>geometry_msgs</depend>
   <depend>nav_msgs</depend>
-  <depend>study_msgs</depend>
   <depend>cv_bridge</depend>
   <depend>sensor_msgs</depend>
 
@@ -19,7 +18,7 @@
   <test_depend>ament_pep257</test_depend>
   <test_depend>python3-pytest</test_depend>
 
-  <exec_depend>custom_interfaces</exec_depend>
+  <exec_depend>study_msgs</exec_depend>
 
   <export>
     <build_type>ament_python</build_type>

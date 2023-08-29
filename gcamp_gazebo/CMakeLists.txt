@@ -17,6 +17,8 @@ endif()
 
 # find dependencies
 find_package(ament_cmake REQUIRED)
+find_package(gazebo_ros_pkgs REQUIRED)
+find_package(gazebo REQUIRED)
 
 # # Generate .urdf files from .urdf.xacro files
 # find_package(xacro REQUIRED)
