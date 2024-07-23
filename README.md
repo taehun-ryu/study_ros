@@ -6,7 +6,7 @@
   - [류태훈](https://github.com/taehun-ryu)
   - [손승민](https://github.com/seungmin-son)
 - 강의자료
-  - [지능형로봇 사업단 ROS2 스터디](https://www.notion.so/fb00410/ROS-2-ecf1d7de8f5046218678d3e235a672b9)
+  - [지능형로봇 사업단 ROS2 스터디]([https://www.notion.so/fb00410/ROS-2-ecf1d7de8f5046218678d3e235a672b9](https://maddening-pisces-ce1.notion.site/ROS2-fcef348f466f40a8869046262d710e68?pvs=4))
  
 ## Abstract
 총 16차시로 기획하였고(추석 연휴로 인해 1일 휴강하여 실제로 15자시), 진행자들이 직접 모든 커리큘럼을 기획하였습니다!
