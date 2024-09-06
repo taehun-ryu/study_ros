@@ -1,7 +1,7 @@
 # ROS2 study handout
 
 - 주관: 지능형로봇사업단
-- 스터디 대상: 한양대학교 EIRCA캠퍼스 로봇공학과 학생들
+- 스터디 대상: 한양대학교 ERICA캠퍼스
 - 스터디 진행
   - [류태훈](https://github.com/taehun-ryu)
   - [손승민](https://github.com/seungmin-son)
